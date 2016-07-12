@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
+            Toast.makeText(MainActivity.this, "Startujem", Toast.LENGTH_SHORT).show();
             Mobile.GoHTTPDownloadString();
             String err = Mobile.ParseAll();
             if (err != null) {
