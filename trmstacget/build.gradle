@@ -1,0 +1,11 @@
+plugins {
+	id "org.golang.mobile.bind" version "0.2.6"
+}
+
+gobind {
+	pkg = "github.com/ArchieT/trmstac/get/mobile"
+
+	GOPATH = "/home/mf/gopath/"
+	
+	GOMOBILEFLAGS = "-javapkg=pl.edu.platinum.archiet.trmstac"
+}
