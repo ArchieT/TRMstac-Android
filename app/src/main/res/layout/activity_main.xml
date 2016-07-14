@@ -9,34 +9,55 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="pl.edu.platinum.archiet.trmstac.MainActivity">
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <Button
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:weightSum="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true">
+            <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="97dp"
         android:layout_height="wrap_content"
         android:text="R"
         android:id="@+id/button"
-        android:layout_alignBottom="@+id/listView"
-        android:layout_alignRight="@+id/listView"
-        android:layout_alignEnd="@+id/listView"
         android:gravity="bottom|right"
-        android:height="5dp"
-        android:minWidth="70px"
-        android:maxWidth="200px"
-        android:maxHeight="200px"
-        android:minHeight="70px"
+        android:minWidth="70dp"
+        android:maxWidth="70dp"
+        android:maxHeight="70dp"
+        android:minHeight="70dp"
         android:nestedScrollingEnabled="false"
         android:padding="15dp"
-        android:textSize="10dp"
+        android:textSize="10sp"
         android:textStyle="normal|bold|italic"
         android:enabled="true"
         android:focusable="false"
-        android:focusableInTouchMode="false" />
+        android:focusableInTouchMode="false"
+        android:longClickable="true"
+            android:layout_gravity="bottom|right"
+                android:layout_alignParentRight="true"/>
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tableLayout2"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </TableLayout>
+    </LinearLayout>
+
 </RelativeLayout>
