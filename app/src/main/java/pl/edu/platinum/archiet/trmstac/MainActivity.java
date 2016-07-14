@@ -14,10 +14,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.Button;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -120,11 +122,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public String readIt(InputStream stream, int len) throws IOException {
-        Reader reader;
-        reader = new InputStreamReader(stream, "UTF-8");
-        char[] buffer = new char[len];
-        reader.read(buffer);
-        return new String(buffer);
+        BufferedReader reader;
+        reader = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
+        StringBuilder writer = new StringBuilder();
+        String line;
+        while ((line =reader.readLine())!=null) {
+            writer.append(line);
+        }
+        String str = writer.toString();
+        return str;
     }
 }
 
