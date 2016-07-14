@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         refreshbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                refresh();
+                refreshClickHandler(view);
             }
         });
     }
@@ -97,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute() {
-            showResult();
+            ListViewAdapter adapter =new ListViewAdapter(MainActivity.this);
+            naszalista.setAdapter(adapter);
         }
     }
     public String readIt(InputStream stream, int len) throws IOException {
@@ -106,24 +107,6 @@ public class MainActivity extends AppCompatActivity {
         char[] buffer = new char[len];
         reader.read(buffer);
         return new String(buffer);
-    }
-}
-
-public class GoException extends Exception {
-    public GoException() {
-        super();
-    }
-
-    public GoException(String message) {
-        super(message);
-    }
-
-    public GoException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public GoException(Throwable cause) {
-        super(cause);
     }
 }
 
