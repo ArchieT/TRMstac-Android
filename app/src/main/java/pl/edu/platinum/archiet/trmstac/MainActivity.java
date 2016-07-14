@@ -84,8 +84,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class DownloadTRMTask extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected String doInBackground() {
+        //@Override
+        protected void doInBackground() {
             try {
                 downloadTRM();
             } catch (IOException e) {
@@ -95,10 +95,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        @Override
+        //@Override
         protected void onPostExecute() {
             ListViewAdapter adapter =new ListViewAdapter(MainActivity.this);
             naszalista.setAdapter(adapter);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            this.doInBackground();
+            return null;
         }
     }
     public String readIt(InputStream stream, int len) throws IOException {
