@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             int response = conn.getResponseCode();
             Log.d("pobieranie", "The response is: " + response);
             is = conn.getInputStream();
-            Mobile.TakeWewnString(readIt(is, 30000));
+            Mobile.TakeWewnString(readIt(is, 3000000));
             String goerr = Mobile.ParseAll();
             if (goerr.length() > 0) {
                 throw new GoException(goerr);
