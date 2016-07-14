@@ -89,9 +89,21 @@ public class MainActivity extends AppCompatActivity {
             try {
                 downloadTRM();
             } catch (IOException e) {
-                Toast.makeText(MainActivity.this, "Unable to download" + e.toString(), Toast.LENGTH_SHORT).show();
+                final IOException oe = e;
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(MainActivity.this, "Unable to download" + oe.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             } catch (GoException e) {
-                Toast.makeText(MainActivity.this, "GoException" + e.toString(), Toast.LENGTH_SHORT).show();
+                final GoException oe = e;
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(MainActivity.this, "GoException" + oe.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         }
 
